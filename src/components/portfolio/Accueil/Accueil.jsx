@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PokeCard from "../Pokedex/PokeCard";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
@@ -31,11 +32,12 @@ const Accueil = () => {
       {loading ? (
         <p>Chargement en cours</p>
       ) : (
-        pokemons.map((pokemon) => (
-          <div key={pokemon.id}>
-            <p>{pokemon.name.fr}</p>
-          </div>
-        ))
+        pokemons.map((pokemon) => {
+          if (pokemon.pokedex_id == 0) {
+            return null;
+          }
+          return <PokeCard key={pokemon.pokedex_id} pokemon={pokemon} />;
+        })
       )}
 
       <Footer />
