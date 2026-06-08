@@ -1,7 +1,7 @@
-const Footer = () => {
+const Footer = ({year, name}) => {
   return (
     <footer>
-      <p>&copy; 2024 Your Name. All rights reserved.</p>
+      <p>&copy; {year} {name}. All rights reserved.</p>
     </footer>
   );
 };
